@@ -1,0 +1,193 @@
+/* =====================================================================
+   styles.css
+   Public Health Survey Analytics Dashboard
+   Auteur : Joseph ATEBA, Data Scientist
+   ===================================================================== */
+
+:root {
+  --ph-primaire: #1f6f8b;
+  --ph-secondaire: #e07a5f;
+  --ph-accent: #3d5a80;
+  --ph-vert: #2a9d8f;
+  --ph-fond: #f4f7f9;
+  --ph-texte: #22333b;
+  --ph-bordure: #e0e8ec;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--ph-fond);
+  color: var(--ph-texte);
+}
+
+/* En-tete */
+.skin-blue .main-header .logo {
+  background-color: #22333b;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.skin-blue .main-header .logo:hover { background-color: #2c4250; }
+.skin-blue .main-header .navbar { background-color: var(--ph-primaire); }
+
+/* Barre laterale */
+.skin-blue .main-sidebar { background-color: #22333b; }
+.skin-blue .sidebar-menu > li.active > a,
+.skin-blue .sidebar-menu > li:hover > a {
+  background-color: var(--ph-primaire) !important;
+  border-left-color: var(--ph-secondaire) !important;
+}
+.sidebar-menu > li > a { font-size: 14px; }
+
+/* Boites */
+.box {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(34, 51, 59, 0.07);
+  border-top-width: 3px;
+}
+.box-header {
+  border-bottom: 1px solid var(--ph-bordure);
+  padding: 14px 16px;
+}
+.box-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ph-texte);
+}
+.box-body { padding: 16px; }
+
+/* Value boxes */
+.small-box {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(34, 51, 59, 0.08);
+}
+.small-box h3 { font-size: 26px; font-weight: 700; }
+.small-box p { font-size: 13px; }
+.small-box .icon-large { opacity: 0.25; }
+
+/* Tableaux de donnees */
+.dataTables_wrapper {
+  font-size: 13px;
+  padding-top: 6px;
+}
+table.dataTable thead th {
+  background-color: #f0f5f7;
+  color: var(--ph-texte);
+  font-weight: 600;
+  border-bottom: 2px solid var(--ph-bordure) !important;
+}
+table.dataTable tbody tr:hover { background-color: #f7fbfc; }
+table.dataTable tbody td { border-top: 1px solid #edf2f4; }
+.dataTables_filter input,
+.dataTables_length select {
+  border: 1px solid var(--ph-bordure);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+/* Blocs d'interpretation */
+.interpretation,
+.interpretation-bloc,
+.test-bloc {
+  background-color: #f0f7f9;
+  border-left: 4px solid var(--ph-primaire);
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 12px 0;
+  line-height: 1.6;
+}
+.test-bloc h4 {
+  margin-top: 0;
+  color: var(--ph-accent);
+  font-weight: 600;
+  font-size: 15px;
+}
+.test-bloc p { margin-bottom: 6px; }
+
+.synthese-box {
+  background-color: #ffffff;
+  border: 1px solid var(--ph-bordure);
+  border-radius: 8px;
+  padding: 16px 20px;
+  line-height: 1.7;
+}
+.synthese-box strong { color: var(--ph-primaire); }
+
+/* Boutons */
+.btn-primary {
+  background-color: var(--ph-primaire);
+  border-color: var(--ph-primaire);
+  border-radius: 6px;
+  font-weight: 500;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #175a72;
+  border-color: #175a72;
+}
+.btn-warning {
+  background-color: var(--ph-secondaire);
+  border-color: var(--ph-secondaire);
+  color: #ffffff;
+  border-radius: 6px;
+}
+.btn-default { border-radius: 6px; }
+
+/* Formulaires */
+.form-control:focus {
+  border-color: var(--ph-primaire);
+  box-shadow: 0 0 0 0.15rem rgba(31, 111, 139, 0.2);
+}
+.selectize-input.focus {
+  border-color: var(--ph-primaire);
+  box-shadow: 0 0 0 0.15rem rgba(31, 111, 139, 0.2);
+}
+
+/* Onglets actifs */
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: var(--ph-primaire);
+}
+
+/* Messages de chargement */
+.shiny-spinner-output-container { min-height: 120px; }
+
+/* Pied de page */
+.main-footer {
+  background-color: #ffffff;
+  border-top: 1px solid var(--ph-bordure);
+  color: #5c6b73;
+  font-size: 13px;
+}
+
+/* Petits ecrans */
+@media (max-width: 768px) {
+  .box-body { padding: 12px; }
+  .small-box h3 { font-size: 20px; }
+  .main-header .logo { font-size: 14px; }
+  .dataTables_wrapper { font-size: 12px; }
+}
+
+/* Encadre d'alerte du plan de sondage */
+.alerte-plan {
+  background: #fff8e6;
+  border-left: 4px solid #e0a800;
+  padding: 14px 18px;
+  border-radius: 4px;
+  line-height: 1.6;
+}
+
+/* Notice methodologique */
+.note-methode {
+  background: #f2f7fa;
+  border-left: 4px solid #1f6f8b;
+  padding: 14px 18px;
+  border-radius: 4px;
+  line-height: 1.6;
+  font-size: 0.95em;
+}
+
+@media print {
+  .main-sidebar, .main-header, .main-footer, .btn, .dataTables_filter { display: none !important; }
+  .content-wrapper { margin-left: 0 !important; background: #ffffff; }
+  .box { box-shadow: none; page-break-inside: avoid; }
+}

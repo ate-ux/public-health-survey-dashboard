@@ -1,0 +1,13 @@
+# =====================================================================
+# Public Health Survey Analytics Dashboard
+# Tableau de bord d'analyse d'enquete en sante publique (R Shiny)
+# =====================================================================
+# Auteur  : Joseph ATEBA, Data Scientist
+# Contact : atebajoseph047@gmail.com | +237 670 211 522
+# Donnees : NHANES 2017-2018 (CDC, domaine public)
+# =====================================================================
+
+## Application Shiny. Lancer avec : shiny::runApp()
+## Ou depuis RStudio : ouvrir app.R puis cliquer sur "Run App".
+
+Version: 1.1

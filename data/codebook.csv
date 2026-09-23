@@ -1,0 +1,66 @@
+variable,libelle,type,unite
+SEQN,Identifiant unique du participant,id,
+RIAGENDR,"Sexe (1=Homme, 2=Femme)",catégorielle,
+RIDAGEYR,Âge en années,continue,ans
+RIDRETH1,"Origine ethnique (1=Mexicain-Am., 2=Autre hisp., 3=Blanc non hisp., 4=Noir non hisp., 5=Autre)",catégorielle,
+DMDEDUC2,"Niveau d'études adultes (1=<9e, 2=9-11e, 3=Lycée, 4=Supérieur partiel, 5=Diplômé)",catégorielle,
+DMDMARTL,État matrimonial,catégorielle,
+INDFMPIR,Ratio revenu/famille par rapport au seuil de pauvreté,continue,ratio
+DMDHHSIZ,Taille du ménage,continue,personnes
+SDMVPSU,Unité primaire de sondage,design,
+SDMVSTRA,Strate de sondage,design,
+WTINT2YR,Poids d'échantillonnage entretien,design,
+WTMEC2YR,Poids d'échantillonnage examen médical,design,
+BMXWT,Poids corporel mesuré,continue,kg
+BMXHT,Taille mesurée,continue,cm
+BMXBMI,Indice de masse corporelle,continue,kg/m2
+BMXWAIST,Tour de taille,continue,cm
+BPQ020,"Déjà diagnostiqué hypertendu (1=Oui, 2=Non)",binaire,
+BPQ030,Tension déjà mesurée par un professionnel,binaire,
+BPQ040A,Prise de médicament antihypertenseur,binaire,
+BPQ080,Cholestérol sanguin élevé signalé,binaire,
+BPXSY1,"Tension systolique, 1re mesure",continue,mmHg
+BPXDI1,"Tension diastolique, 1re mesure",continue,mmHg
+BPXSY2,"Tension systolique, 2e mesure",continue,mmHg
+BPXDI2,"Tension diastolique, 2e mesure",continue,mmHg
+BPXPLS,Pouls,continue,bpm
+DIQ010,"Diagnostic de diabète (1=Oui, 2=Non, 3=Limite)",catégorielle,
+DIQ050,Insuline prise actuellement,binaire,
+DIQ070,Médicament antidiabétique oral,binaire,
+SMQ020,A fumé au moins 100 cigarettes dans sa vie,binaire,
+SMQ040,"Fume actuellement (1=Tous les jours, 2=Quelquefois, 3=Pas du tout)",catégorielle,
+SMD030,Âge de début de tabagisme,continue,ans
+SMD641,Nombre de jours d'arrêt du tabac (dernier mois),continue,jours
+SLQ050,Trouble du sommeil déjà évoqué par un médecin,binaire,
+HIQ011,"Assurance santé (1=Oui, 2=Non)",binaire,
+DPQ010,PHQ-9 item 1 : peu d'intérêt ou de plaisir,ordinale,0-3
+DPQ020,PHQ-9 item 2 : se sentir déprimé,ordinale,0-3
+DPQ030,PHQ-9 item 3 : problèmes de sommeil,ordinale,0-3
+DPQ040,PHQ-9 item 4 : fatigue,ordinale,0-3
+DPQ050,PHQ-9 item 5 : appétit,ordinale,0-3
+DPQ060,PHQ-9 item 6 : mauvaise estime de soi,ordinale,0-3
+DPQ070,PHQ-9 item 7 : difficulté de concentration,ordinale,0-3
+DPQ080,PHQ-9 item 8 : retard psychomoteur,ordinale,0-3
+DPQ090,PHQ-9 item 9 : pensées suicidaires,ordinale,0-3
+DPQ_total,Score PHQ-9 total (0-27),continue,score
+LBXGH,Hémoglobine glyquée HbA1c,continue,%
+LBXTC,Cholestérol total,continue,mg/dL
+LBDHDD,Cholestérol HDL,continue,mg/dL
+LBXTR,Triglycérides,continue,mg/dL
+LBDLDL,Cholestérol LDL,continue,mg/dL
+PAQ605,Activité physique vigoureuse au travail,binaire,
+PAQ620,Activité physique modérée au travail,binaire,
+PAQ650,Marche ou vélo pour se déplacer,binaire,
+PAQ665,Activité récréative vigoureuse,binaire,
+MCQ160B,Insuffisance cardiaque congestive,binaire,
+MCQ160C,Maladie coronarienne,binaire,
+MCQ160E,Crise cardiaque,binaire,
+MCQ160F,Accident vasculaire cérébral,binaire,
+MCQ220,Cancer (toute forme),binaire,
+SBP_mean,Tension systolique moyenne (2 mesures),continue,mmHg
+DBP_mean,Tension diastolique moyenne (2 mesures),continue,mmHg
+hypertension,Hypertension autorapportée (0/1),binaire,
+diabetes,Diabète autorapporté (0/1),binaire,
+current_smoker,Fumeur actuel (0/1),binaire,
+BMI_cat,Catégorie d'IMC,catégorielle,
+age_group,Groupe d'âge,catégorielle,

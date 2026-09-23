@@ -1,0 +1,106 @@
+---
+title: "Rapport d'analyse d'enquete en sante publique"
+author: "Joseph ATEBA, Data Scientist"
+date: "`r format(Sys.time(), '%d/%m/%Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    df_print: paged
+  pdf_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.width = 8, fig.height = 5)
+if (!requireNamespace("readr", quietly = TRUE)) install.packages("readr", repos = "https://cloud.r-project.org")
+library(dplyr)
+library(ggplot2)
+library(knitr)
+
+# Modules internes du projet
+source("R/data_cleaning.R")
+source("R/descriptive_analysis.R")
+source("R/regression.R")
+source("R/tests_avances.R")
+source("R/survival.R")
+source("R/report_generation.R")
+```
+
+# Objectif
+
+Ce rapport presente une analyse complete du jeu de donnees d'enquete en sante
+publique charge dans le tableau de bord. Il couvre la qualite des donnees, la
+statistique descriptive, l'analyse bivariee, la regression logistique et les
+tests statistiques.
+
+```{r chargement}
+donnees <- charger_csv("data/nhanes_survey.csv")
+```
+
+# Vue d'ensemble
+
+```{r resume}
+q <- resume_qualite(donnees)
+tibble::tibble(
+  Indicateur = c("Observations", "Variables", "Cellules manquantes",
+                 "Taux de manquant (%)", "Lignes dupliquees", "Colonnes completes"),
+  Valeur = c(q$n_lignes, q$n_colonnes, q$cellules_manquantes,
+             q$pct_manquant_global, q$lignes_doublons, q$colonnes_completes)
+) |> kable()
+```
+
+# Statistiques descriptives
+
+## Variables quantitatives
+
+```{r desc_continu}
+tableau_descriptif_continu(donnees) |> head(20) |> kable()
+```
+
+## Variables qualitatives
+
+```{r desc_discret}
+d <- tableau_descriptif_discret(donnees)
+if (!is.null(d)) {
+  d |> select(Variable, Modalite, Effectif, Pourcentage) |> head(30) |> kable()
+}
+```
+
+# Analyse bivariee
+
+```{r bivarie}
+test_chi2(donnees, "hypertension", "current_smoker")$conclusion
+```
+
+# Regression logistique
+
+```{r regression}
+m <- ajuster_logistique(donnees, "hypertension",
+                        c("RIDAGEYR", "RIAGENDR", "BMXBMI", "current_smoker"))
+if (is.null(m$erreur)) {
+  tableau_coefficients(m$modele) |> kable()
+  pseudo_r2(m$modele)
+}
+```
+
+# Tests statistiques
+
+```{r tests}
+test_moyennes(donnees, "BMXBMI", "hypertension")$interpretation
+```
+
+# Limites
+
+- Les associations sont observationnelles, sans conclusion causale.
+- Les poids et le plan de sondage complexe ne sont pas pris en compte.
+- Les tests multiples ne sont pas corriges dans cette version.
+
+\newpage
+
+*Rapport produit pour le Public Health Survey Analytics Dashboard.*
+
+**Auteur :** Joseph ATEBA, Data Scientist
+**Contact :** atebajoseph047@gmail.com | +237 670 211 522

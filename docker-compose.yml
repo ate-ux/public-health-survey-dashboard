@@ -1,0 +1,21 @@
+# =====================================================================
+# docker-compose.yml
+# Lancement du tableau de bord dans un conteneur
+# Usage : docker compose up --build
+# =====================================================================
+
+services:
+  public-health-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: public-health-shiny:latest
+    container_name: public_health_shiny
+    ports:
+      - "3838:3838"
+    volumes:
+      - ./data:/srv/shiny-server/app/data:ro
+      - ./www:/srv/shiny-server/app/www:ro
+    restart: unless-stopped
+    environment:
+      - TZ=Africa/Douala
